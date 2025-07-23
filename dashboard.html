@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feplug-NG - Agent Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo-container">
+                <img src="pcs/Logo.png" alt="Feplug-NG Logo" class="logo">
+            </div>
+
+            <nav class="main-nav">
+                <ul>
+                    <li class="active">
+                        <a href="#">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-plane"></i>
+                            <span>Book Flight</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Date Change</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-user"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="status-widget">
+                <div class="circular-progress">
+                    <svg class="progress-ring" width="120" height="120">
+                        <circle class="progress-ring-circle" stroke-width="8" fill="transparent" r="52" cx="60" cy="60"/>
+                    </svg>
+                    <div class="progress-text">75%</div>
+                </div>
+                <p class="status-text">Monthly Target</p>
+            </div>
+
+            <div class="logout-container">
+                <a href="#" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Top Header Bar -->
+            <header class="top-header">
+                <div class="header-left">
+                    <div class="profile-dropdown">
+                        <div class="dropdown-toggle">
+                            <div class="avatar">
+                                <img src="pcs/Ijeoma.png" alt="User Avatar">
+                            </div>
+                            <span>Admin Dashboard</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="dropdown-menu">
+                            <a href="#"><i class="fas fa-user"></i> Profile</a>
+                            <a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                            <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                            <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="search-bar">
+                    <input type="text" placeholder="Search bookings...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </div>
+            </header>
+
+            <!-- Analytics Cards -->
+            <section class="analytics-cards">
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Total Bookings</h3>
+                        <p class="card-value">1,248</p>
+                        <p class="card-change positive"><i class="fas fa-arrow-up"></i> 12% from last month</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Total Reservations</h3>
+                        <p class="card-value">986</p>
+                        <p class="card-change positive"><i class="fas fa-arrow-up"></i> 8% from last month</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-plane-departure"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Flown Segments</h3>
+                        <p class="card-value">754</p>
+                        <p class="card-change negative"><i class="fas fa-arrow-down"></i> 5% from last month</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Total Commission</h3>
+                        <p class="card-value">N2,450,800</p>
+                        <p class="card-change positive"><i class="fas fa-arrow-up"></i> 15% from last month</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Filter Tabs and Data Table -->
+            <section class="data-section">
+                <div class="filter-tabs">
+                    <button class="tab-btn active">All Bookings</button>
+                    <button class="tab-btn">Confirmed</button>
+                    <button class="tab-btn">Pending</button>
+                    <button class="tab-btn">Cancelled</button>
+                </div>
+
+                <div class="table-container">
+                    <table class="bookings-table">
+                        <thead>
+                            <tr>
+                                <th>Booking ID</th>
+                                <th>Booking Ref</th>
+                                <th>Passenger Name</th>
+                                <th>Airline</th>
+                                <th>Route</th>
+                                <th>Booked By</th>
+                                <th>Commission</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#BK-1001</td>
+                                <td>REF-2456</td>
+                                <td>Adeola Johnson</td>
+                                <td>British Airways</td>
+                                <td>LOS → LHR</td>
+                                <td>John D.</td>
+                                <td>N45,200</td>
+                                <td><span class="status-badge ticked">Ticked</span></td>
+                                <td>
+                                    <button class="action-btn view-btn">View Details</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#BK-1002</td>
+                                <td>REF-2457</td>
+                                <td>Chinedu Okoro</td>
+                                <td>Delta Airlines</td>
+                                <td>ABV → JFK</td>
+                                <td>Sarah K.</td>
+                                <td>N52,800</td>
+                                <td><span class="status-badge reserved">Reserved</span></td>
+                                <td>
+                                    <button class="action-btn view-btn">View Details</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#BK-1003</td>
+                                <td>REF-2458</td>
+                                <td>Folake Adebayo</td>
+                                <td>Emirates</td>
+                                <td>LOS → DXB</td>
+                                <td>Mike T.</td>
+                                <td>N38,500</td>
+                                <td><span class="status-badge ticked">Ticked</span></td>
+                                <td>
+                                    <button class="action-btn view-btn">View Details</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#BK-1004</td>
+                                <td>REF-2459</td>
+                                <td>Emeka Okafor</td>
+                                <td>British Airways</td>
+                                <td>ABV → LHR</td>
+                                <td>John D.</td>
+                                <td>N41,200</td>
+                                <td><span class="status-badge reserved">Reserved</span></td>
+                                <td>
+                                    <button class="action-btn view-btn">View Details</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#BK-1005</td>
+                                <td>REF-2460</td>
+                                <td>Bisi Adekunle</td>
+                                <td>Delta Airlines</td>
+                                <td>LOS → ATL</td>
+                                <td>Sarah K.</td>
+                                <td>N49,600</td>
+                                <td><span class="status-badge ticked">Ticked</span></td>
+                                <td>
+                                    <button class="action-btn view-btn">View Details</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="pagination">
+                        <button class="pagination-btn" disabled>
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <span class="page-number">Page 1 of 5</span>
+                        <button class="pagination-btn">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
