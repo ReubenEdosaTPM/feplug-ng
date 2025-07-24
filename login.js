@@ -1,16 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Slide functionality
+    // ===== Existing Slide Functionality ===== //
     let currentSlide = 0;
     const slides = document.querySelectorAll('.slide');
     const indicators = document.querySelectorAll('.indicator');
     let slideInterval;
 
     function showSlide(index) {
-        // Hide all slides
         slides.forEach(slide => slide.classList.remove('active'));
         indicators.forEach(indicator => indicator.classList.remove('active'));
-        
-        // Show the selected slide
         slides[index].classList.add('active');
         indicators[index].classList.add('active');
         currentSlide = index;
@@ -25,11 +22,9 @@ document.addEventListener('DOMContentLoaded', function() {
         slideInterval = setInterval(nextSlide, 5000);
     }
 
-    // Initialize slides
     showSlide(0);
     startSlideShow();
 
-    // Add click event to indicators
     indicators.forEach((indicator, index) => {
         indicator.addEventListener('click', () => {
             clearInterval(slideInterval);
@@ -38,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Password toggle functionality
+    // ===== Password Toggle Functionality ===== //
     function togglePassword(fieldId) {
         const passwordField = document.getElementById(fieldId);
         const icon = passwordField.nextElementSibling;
@@ -52,41 +47,34 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Attach toggle function to password field
     document.querySelector('.toggle-password').addEventListener('click', function() {
         const fieldId = this.getAttribute('data-target');
         togglePassword(fieldId);
     });
 
-    // Form validation and submission
+    // ===== Updated Form Submission (Now Redirects to Dashboard) ===== //
     const loginForm = document.getElementById('loginForm');
     loginForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value.trim();
         
-        // Basic validation
         if (!email || !password) {
             alert('Please fill in all fields');
             return;
         }
         
-        // Form submission would go here
-        alert('Login successful!');
-        // this.reset();
+        // Replace with actual authentication logic if needed
+        // For now, redirect to dashboard after validation
+        window.location.href = 'dashboard.html'; // Update path as needed
     });
 
-    // Handle responsive adjustments
+    // ===== Existing Responsive Handling ===== //
     function handleResize() {
-        if (window.innerWidth <= 992) {
-            document.body.style.overflow = 'auto';
-        } else {
-            document.body.style.overflow = 'hidden';
-        }
+        document.body.style.overflow = window.innerWidth <= 992 ? 'auto' : 'hidden';
     }
 
-    // Pause slideshow when tab is inactive
     document.addEventListener('visibilitychange', function() {
         if (document.hidden) {
             clearInterval(slideInterval);
